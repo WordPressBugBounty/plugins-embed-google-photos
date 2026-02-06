@@ -1,0 +1,60 @@
+# Copyright (C) 2024 bPlugins
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gallery For Google Photos 1.0.9\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/embed-google-photos\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-28T06:28:26+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: embed-google-photos\n"
+
+#. Plugin Name of the plugin
+#: embed-google-photos.php
+msgid "Gallery For Google Photos"
+msgstr ""
+
+#. Description of the plugin
+#: embed-google-photos.php
+msgid "Embed stunning Google Photos galleries directly into your WordPress site with the Google Photos Block plugin."
+msgstr ""
+
+#. Author of the plugin
+#: embed-google-photos.php
+msgid "bPlugins"
+msgstr ""
+
+#. Author URI of the plugin
+#: embed-google-photos.php
+msgid "http://bplugins.com"
+msgstr ""
+
+#: block.json
+msgctxt "block title"
+msgid "Embed Google Photos"
+msgstr ""
+
+#: block.json
+msgctxt "block description"
+msgid "Embed stunning Google Photos galleries directly into your WordPress site with the Google Photos Block plugin."
+msgstr ""
+
+#: block.json
+msgctxt "block keyword"
+msgid "photos"
+msgstr ""
+
+#: block.json
+msgctxt "block keyword"
+msgid "gallery"
+msgstr ""
+
+#: block.json
+msgctxt "block keyword"
+msgid "block"
+msgstr ""
