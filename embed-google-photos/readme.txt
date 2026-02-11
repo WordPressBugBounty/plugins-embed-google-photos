@@ -3,7 +3,7 @@ Contributors:abuhayat, bplugins, btechnologies
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, photos, google photos, gallery, Gutenberg block
 Requires at least: 6.5+
-Tested up to: 6.9 
+Tested up to: 6.9
 Stable tag: 1.0.9
 Requires PHP: 7.1 
 License: GPLv3 or later
