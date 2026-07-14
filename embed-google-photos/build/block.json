@@ -1,0 +1,246 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "bpgpb/google-photos",
+  "title": "Embed Google Photos",
+  "description": "Embed stunning Google Photos galleries directly into your WordPress site with the Google Photos Block plugin.",
+  "category": "widgets",
+  "version": "1.2.1",
+  "keywords": [
+    "photos",
+    "gallery",
+    "block"
+  ],
+  "textdomain": "embed-google-photos",
+  "attributes": {
+    "selectedPhotos": {
+      "type": "array",
+      "default": []
+    },
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "cId": {
+      "type": "string",
+      "default": ""
+    },
+    "sessionId": {
+      "type": "string",
+      "default": ""
+    },
+    "photosType": {
+      "type": "string",
+      "default": ""
+    },
+    "favorite": {
+      "type": "string",
+      "default": "none"
+    },
+    "album": {
+      "type": "object",
+      "default": {
+        "title": "Album List",
+        "isTitle": true,
+        "photosList": true,
+        "albumList": false
+      }
+    },
+    "layoutShow": {
+      "type": "string",
+      "default": "photos"
+    },
+    "albumList": {
+      "type": "array",
+      "default": []
+    },
+    "albumId": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaType": {
+      "type": "string",
+      "default": "all_media"
+    },
+    "layout": {
+      "type": "string",
+      "default": "grid"
+    },
+    "hoverEffect": {
+      "type": "string",
+      "default": "none"
+    },
+    "hover": {
+      "type": "object",
+      "default": {
+        "zoom": 8,
+        "overlayColor": "rgba(0,0,0,0.4)",
+        "duration": 450
+      }
+    },
+    "caption": {
+      "type": "object",
+      "default": {
+        "show": false,
+        "source": "title",
+        "position": "overlay"
+      }
+    },
+    "lightbox": {
+      "type": "object",
+      "default": {
+        "caption": true,
+        "thumbs": true,
+        "slideshow": false,
+        "slideshowSpeed": 3000
+      }
+    },
+    "video": {
+      "type": "object",
+      "default": {
+        "controls": true,
+        "autoplay": false,
+        "muted": false,
+        "loop": false,
+        "fitToWindow": true
+      }
+    },
+    "captionTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 13,
+          "tablet": 13,
+          "mobile": 12
+        },
+        "fontFamily": "",
+        "fontWeight": 400,
+        "lineHeight": "140%"
+      }
+    },
+    "captionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "carousel": {
+      "type": "object",
+      "default": {
+        "autoplay": false,
+        "autoplaySpeed": 3000,
+        "loop": true,
+        "arrows": true,
+        "dots": true
+      }
+    },
+    "paginationType": {
+      "type": "string",
+      "default": "load_more"
+    },
+    "perPage": {
+      "type": "number",
+      "default": 9
+    },
+    "loadMoreText": {
+      "type": "string",
+      "default": "Load More"
+    },
+    "columns": {
+      "type": "object",
+      "default": {
+        "desktop": 3,
+        "tablet": 2,
+        "mobile": 1
+      }
+    },
+    "columnGap": {
+      "type": "string",
+      "default": "30px"
+    },
+    "rowGap": {
+      "type": "string",
+      "default": "40px"
+    },
+    "coverImage": {
+      "type": "object",
+      "default": {
+        "ratio": "3:4"
+      }
+    },
+    "imgBorder": {
+      "type": "object",
+      "default": {
+        "width": "1px",
+        "style": "solid",
+        "color": "#0575e6",
+        "side": "all",
+        "radius": "3px"
+      }
+    },
+    "loadMoreBtnTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 16,
+          "tablet": 16,
+          "mobile": 14
+        },
+        "fontFamily": "Open Sans",
+        "fontWeight": 500,
+        "lineHeight": "135%"
+      }
+    },
+    "loadMoreBtnColors": {
+      "type": "object",
+      "default": {
+        "color": "#fff",
+        "bg": "#2f5aae"
+      }
+    },
+    "loadMoreBtnPadding": {
+      "type": "object",
+      "default": {
+        "top": "6px",
+        "right": "12px",
+        "bottom": "6px",
+        "left": "12px"
+      }
+    },
+    "loadMoreBtnBorder": {
+      "type": "object",
+      "default": {
+        "width": "1px",
+        "style": "solid",
+        "color": "#0575e6",
+        "side": "all",
+        "radius": "3px"
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true,
+      "columns": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    }
+  },
+  "editorScript": [
+    "file:./index.js",
+    "wp-api",
+    "wp-api-request",
+    "wp-util"
+  ],
+  "editorStyle": "file:./index.css",
+  "style": "file:./view.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

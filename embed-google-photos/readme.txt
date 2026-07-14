@@ -1,11 +1,11 @@
-=== Gallery for Google Photos – Import and Showcase Photo Albums ===
-Contributors:abuhayat, bplugins, btechnologies
+=== Gallery for Google Photos – Import and Display Photo Albums ===
+Contributors: abuhayat, bplugins, btechnologies
 Donate link: https://www.buymeacoffee.com/abuhayat
-Tags: block, photos, google photos, gallery, Gutenberg block
-Requires at least: 6.5+
-Tested up to: 6.9.4
-Stable tag: 1.0.9
-Requires PHP: 7.1 
+Tags: block, photos, google photos, gallery, album
+Requires at least: 6.5
+Tested up to: 7.0
+Stable tag: 1.2.1
+Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -99,7 +99,6 @@ You can use unlimited times as you want.
 
 You can post your questions on the [support forum here](https://wordpress.org/support/plugin/embed-google-photos/)
 
-
 == Screenshots ==
 
 1. Settings
@@ -115,6 +114,13 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Changelog ==
+
+= 1.2.1 - 14 July, 2026 =
+* Important: Google retired the old Photos Library API, so older galleries may stop showing images. Now uses Google's new Photos Picker — reconnect your account and re-select your photos (they import into your Media Library and keep working).
+* New: video support, Grid/Masonry/Carousel layouts, Load More & Pagination, captions, and image aspect-ratio & border controls.
+* Performance/SEO: lazy-load with blur placeholder, responsive images (srcset), Schema.org image markup, and per-image alt text.
+* Security: fixed a stored XSS in the lightbox; made Google credentials (Client ID/Secret/Refresh Token) write-only and server-side only; closed the earlier OAuth token exposure.
+* Improved: redesigned authorization flow; resolved all Plugin Check findings; documented external services and bundled third-party libraries.
 
 = 1.0.9 - 28 Dec, 2024 =
 * Frontend useAjax use.
@@ -150,6 +156,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Upgrade Notice ==
 
+= 1.2.1 =
+Important: Google shut down the old Google Photos API this plugin used, so galleries built the old way may no longer show your images. This version adds Google's new Photos Picker system — after updating, open the block, reconnect your Google account, and re-select your photos (they are now saved to your own Media Library and keep working). Also a recommended security fix (stored XSS + write-only credentials).
+
 = 1.0.9 - 28 Dec, 2024 =
 * Frontend useAjax use.
 
@@ -181,4 +190,97 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 = 1.0.0 =
 * Initial Release
 
- 
+
+== Source Code ==
+
+You can find the source code, report bugs, and contribute to the development of this plugin on our GitHub repository:
+[**Embed Google Photos on GitHub**](https://github.com/bPlugins/embed-google-photos) 
+
+
+== External Services ==
+
+This plugin connects to the following external services. Understanding what is sent, and when, helps clarify how your data is handled.
+
+= Google Photos (Google OAuth 2.0 + Google Photos Picker API) =
+
+What it is and why it is used: This plugin is a Google Photos gallery. To let you pick photos and videos from your own Google Photos account and display them on your site, it connects to Google's APIs on your server. This connection only happens after you enter your own Google API credentials (Client ID, Client Secret, Refresh Token) in the plugin settings and use the "Select Photos" flow; it is required for the plugin to function.
+
+Which endpoints are contacted and what data is sent:
+* https://oauth2.googleapis.com/token — your Client ID, Client Secret and Refresh Token are sent to exchange them for a short-lived access token.
+* https://photospicker.googleapis.com/v1 — the access token is sent (as a Bearer token) to create a picker session, check its status, and list the media items you selected. The selected photos/videos are then downloaded to your own WordPress Media Library.
+
+When it happens: only in wp-admin, triggered by an authenticated administrator connecting an account or clicking "Select Photos". No data is sent from your visitors' browsers, and the OAuth credentials/tokens never reach the frontend.
+
+Your credentials and tokens are stored only on your own server (in your WordPress database) and are sent only to Google. This plugin does not transmit them to bPlugins or any other third party.
+
+Google's terms and privacy policy:
+* Terms of Service: https://policies.google.com/terms
+* Privacy Policy: https://policies.google.com/privacy
+* Google APIs Terms of Service: https://developers.google.com/terms
+
+= Schema.org vocabulary (https://schema.org) =
+
+What it is and why it is used: On the frontend the plugin outputs Schema.org "ImageObject" structured data (JSON-LD) for each gallery image so search engines such as Google can better understand and index your images (Google Images / rich results, improving SEO).
+
+What data is sent: None. The address "https://schema.org" appears only as the standard `@context` identifier inside the JSON-LD markup — it is a vocabulary name, not a network request. The plugin does not connect to, load anything from, or send any data to schema.org. All image data stays on your own server.
+
+Terms & privacy: https://schema.org/docs/terms.html
+
+== Third-Party Libraries ==
+
+This plugin bundles the following third-party JavaScript/PHP libraries.
+
+= Swiper =
+* **Source:** https://swiperjs.com/
+* **GitHub:** https://github.com/nolimits4web/swiper
+* **License:** MIT – https://github.com/nolimits4web/swiper/blob/master/LICENSE
+* **Purpose:** Provides the "Carousel" gallery layout — a touch-enabled slider with autoplay, loop, navigation arrows and pagination dots.
+
+= Plyr =
+* **Source:** https://plyr.io/
+* **GitHub:** https://github.com/sampotts/plyr
+* **License:** MIT – https://github.com/sampotts/plyr/blob/master/LICENSE.md
+* **Purpose:** A simple, accessible HTML5 media player used to play gallery videos inside the lightbox.
+
+= Fancybox (@fancyapps/ui) =
+* **Source:** https://fancyapps.com/fancybox/
+* **GitHub:** https://github.com/fancyapps/ui
+* **License:** Fancyapps UI License – https://fancyapps.com/pricing/ (note: this is a proprietary license, not MIT/GPL — see the security/compatibility note below).
+* **Purpose:** The lightbox that opens photos and videos in a full-screen viewer.
+
+= Immer =
+* **Source:** https://immerjs.github.io/immer/
+* **GitHub:** https://github.com/immerjs/immer
+* **License:** MIT – https://github.com/immerjs/immer/blob/main/LICENSE
+* **Purpose:** Enables safe, immutable updates of block settings inside the Gutenberg editor.
+
+= Axios =
+* **Source:** https://axios-http.com/
+* **GitHub:** https://github.com/axios/axios
+* **License:** MIT – https://github.com/axios/axios/blob/v1.x/LICENSE
+* **Purpose:** Promise-based HTTP client used for the plugin's admin/editor AJAX requests.
+
+= React Router (react-router-dom) =
+* **Source:** https://reactrouter.com/
+* **GitHub:** https://github.com/remix-run/react-router
+* **License:** MIT – https://github.com/remix-run/react-router/blob/main/LICENSE.md
+* **Purpose:** Client-side routing for the plugin's admin "Demo & Help" dashboard.
+
+= Font Awesome =
+* **Source:** https://fontawesome.com/
+* **GitHub:** https://github.com/FortAwesome/Font-Awesome
+* **License:** SIL OFL 1.1 (Fonts), MIT (CSS), CC BY 4.0 (Icons) – https://fontawesome.com/license/free
+* **Purpose:** Provides scalable vector icons used in the block and editor interface.
+
+= bpl-tools =
+* **Source / GitHub:** https://github.com/bPlugins/bpl-tools
+* **License:** GPL-2.0-or-later – https://www.gnu.org/licenses/gpl-2.0.html
+* **Purpose:** Shared utility library providing admin dashboard components and common Gutenberg editor controls.
+* **External Services:** The library may connect to bPlugins, WordPress.org, and Freemius services for product data and checkout functionality. See full details: https://github.com/bPlugins/bpl-tools#external-requests--why-they-are-made
+
+= Freemius Lite SDK =
+* **Source:** https://bplugins.com/
+* **GitHub:** https://github.com/bPlugins/freemius-lite-sdk
+* **License:** GPL-2.0-or-later – https://www.gnu.org/licenses/gpl-2.0.html
+* **Purpose:** Provides an opt-in consent form for usage tracking and analytics to help improve the plugin. No data is sent before explicit user consent.
+* **External Services:** Communicates with `api.bplugins.com` (activation events) and `wp.freemius.com` (opt-in processing) only after user opt-in. See [bPlugins Privacy Policy](https://bplugins.com/privacy-policy) and [Freemius Privacy Policy](https://freemius.com/privacy/).
