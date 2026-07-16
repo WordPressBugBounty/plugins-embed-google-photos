@@ -27,7 +27,7 @@ if (!class_exists('bpgpb_Custom_Post_Type')) {
         }
 
         public function onInit() {
-            $menuIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v7.59l3.3-3.3a1 1 0 0 1 1.4 0L12 13.6l2.3-2.3a1 1 0 0 1 1.4 0L20 15.6V7H4zm5 1.5A1.5 1.5 0 1 1 7.5 10 1.5 1.5 0 0 1 9 8.5z"/></svg>';
+            $menuIcon = '<svg width="24px" height="24px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" fill="black"><path d="M12.678 16.672c0 2.175.002 4.565-.001 6.494-.001.576-.244.814-.817.833-7.045.078-8.927-7.871-4.468-11.334-1.95.016-4.019.007-5.986.007-1.351 0-1.414-.01-1.405-1.351.258-6.583 7.946-8.275 11.323-3.936L11.308.928c-.001-.695.212-.906.906-.925 6.409-.187 9.16 7.308 4.426 11.326l6.131.002c1.097 0 1.241.105 1.228 1.217-.223 6.723-7.802 8.376-11.321 4.124zm.002-15.284-.003 9.972c6.56-.465 6.598-9.532.003-9.972zm-1.36 21.224-.001-9.97c-6.927.598-6.29 9.726.002 9.97zM1.4 11.315l9.95.008c-.527-6.829-9.762-6.367-9.95-.008zm11.238 1.365c.682 6.875 9.67 6.284 9.977.01z"/></svg>';
 
             register_post_type($this->post_type, [
                 'labels' => [
@@ -49,7 +49,7 @@ if (!class_exists('bpgpb_Custom_Post_Type')) {
                 'publicly_queryable'  => false,
                 'exclude_from_search' => true,
                 'menu_position'       => 20,
-                'menu_icon'           => 'data:image/svg+xml;utf8,' . rawurlencode($menuIcon),
+                'menu_icon'           => 'data:image/svg+xml;base64,' . base64_encode($menuIcon),
                 'has_archive'         => false,
                 'hierarchical'        => false,
                 'capability_type'     => 'page',

@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gallery for Google Photos – Import and Display Photo Albums 1.2.1\n"
+"Project-Id-Version: Gallery for Google Photos – Import and Display Photo Albums 1.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/embed-google-photos\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-14T08:46:32+00:00\n"
+"POT-Creation-Date: 2026-07-16T06:04:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: embed-google-photos\n"
@@ -39,118 +39,151 @@ msgstr ""
 msgid "http://bplugins.com"
 msgstr ""
 
+#: embed-google-photos/includes/admin-menu.php:51
+#: embed-google-photos/includes/admin-menu.php:52
 #: includes/admin-menu.php:51
 #: includes/admin-menu.php:52
 msgid "Demo & Help"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:34
 #: includes/custom-post.php:34
 msgid "Galleries"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:35
 #: includes/custom-post.php:35
 msgid "Gallery"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:36
 #: includes/custom-post.php:36
 msgid "Google Photos"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:37
 #: includes/custom-post.php:37
 msgid "All Galleries"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:38
 #: includes/custom-post.php:38
 msgid "Add New"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:39
 #: includes/custom-post.php:39
 msgid "Add New Gallery"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:40
 #: includes/custom-post.php:40
 msgid "Edit Gallery"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:41
 #: includes/custom-post.php:41
 msgid "New Gallery"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:42
 #: includes/custom-post.php:42
 msgid "View Gallery"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:43
 #: includes/custom-post.php:43
 msgid "Search Galleries"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:44
 #: includes/custom-post.php:44
 msgid "No galleries found."
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:112
 #: includes/custom-post.php:112
 msgid "ShortCode"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:113
 #: includes/custom-post.php:113
 msgid "Date"
 msgstr ""
 
+#: embed-google-photos/includes/custom-post.php:127
 #: includes/custom-post.php:127
 #: assets/js/admin.js:9
+#: embed-google-photos/assets/js/admin.js:9
 msgid "Copy To Clipboard"
 msgstr ""
 
+#: embed-google-photos/includes/google-api.php:105
 #: includes/google-api.php:105
 msgid "Please provide the Client ID, Client Secret and Refresh Token."
 msgstr ""
 
+#: embed-google-photos/includes/google-api.php:134
 #: includes/google-api.php:134
 msgid "Invalid credentials. Please re-check your Client ID, Client Secret and Refresh Token."
 msgstr ""
 
+#: embed-google-photos/includes/google-api.php:198
 #: includes/google-api.php:198
 msgid "Could not start a Google Photos picker session. Please reconnect your account and try again."
 msgstr ""
 
 #: assets/js/admin.js:7
+#: embed-google-photos/assets/js/admin.js:7
 msgid "Copied Successfully!"
 msgstr ""
 
 #: build/view.js:1
+#: embed-google-photos/build/view.js:1
 msgid "videos"
 msgstr ""
 
 #: build/view.js:1
+#: embed-google-photos/build/view.js:1
 msgid "photos"
 msgstr ""
 
 #: build/view.js:1
+#: embed-google-photos/build/view.js:1
 #, js-format
 msgid "No %s found in this gallery."
 msgstr ""
 
+#: build/view.js:1
+msgid "Show all media"
+msgstr ""
+
 #: build/block.json
+#: embed-google-photos/build/block.json
 msgctxt "block title"
 msgid "Embed Google Photos"
 msgstr ""
 
 #: build/block.json
+#: embed-google-photos/build/block.json
 msgctxt "block description"
 msgid "Embed stunning Google Photos galleries directly into your WordPress site with the Google Photos Block plugin."
 msgstr ""
 
 #: build/block.json
+#: embed-google-photos/build/block.json
 msgctxt "block keyword"
 msgid "photos"
 msgstr ""
 
 #: build/block.json
+#: embed-google-photos/build/block.json
 msgctxt "block keyword"
 msgid "gallery"
 msgstr ""
 
 #: build/block.json
+#: embed-google-photos/build/block.json
 msgctxt "block keyword"
 msgid "block"
 msgstr ""

@@ -3,7 +3,7 @@
  * Plugin Name: Gallery for Google Photos – Import and Display Photo Albums
  * Plugin URI: https://bplugins.com/plugins/gallery-for-google-photos/
  * Description: Embed stunning Google Photos galleries directly into your WordPress site with the Google Photos Block plugin.
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * License: GPLv3 or later
@@ -31,13 +31,13 @@ if (function_exists('bpgpb_fs')) {
 
                 $bpgpbConfig = array(
                     'id'         => '34444',
-                    'slug'       => 'embed-google-photos',
+                    'slug'       => 'wp-google-photos',
                     'type'       => 'plugin',
                     'public_key' => 'pk_cdef836737c97094c8ea2d152212b',
                     'is_premium' => false,
                     'menu'       => array(
                         'slug'       => 'edit.php?post_type=bpgpb_gallery',
-                        'first-path' => 'edit.php?post_type=bpgpb_gallery&page=bpgpb-dashboard',
+                        'first-path' => 'edit.php?post_type=bpgpb_gallery&page=bpgpb-dashboard#/pricing',
                         'support'    => false,
                     ),
                 );
@@ -60,10 +60,6 @@ class bpgpb_Embed_Google_Photos {
         $this->constants_defined();
 
         add_action('init', [$this, 'onInit']);
-
-        // On activation, flag a one-time redirect to the Galleries (shortcode) screen.
-        register_activation_hook(__FILE__, [$this, 'onActivate']);
-        add_action('admin_init', [$this, 'activationRedirect']);
     }
 
     public static function get_instance() {
@@ -77,7 +73,7 @@ class bpgpb_Embed_Google_Photos {
 
     public function constants_defined() {
         // Constant
-        define( 'BPGPB_PLUGIN_VERSION', '1.2.1' );
+        define( 'BPGPB_PLUGIN_VERSION', '1.2.2' );
         define('BPGPB_ASSETS_DIR', plugin_dir_url(__FILE__) . 'assets/');
         define('BPGPB_DIR_URL', plugin_dir_url(__FILE__));
         define('BPGPB_DIR_PATH', plugin_dir_path(__FILE__));
@@ -88,35 +84,6 @@ class bpgpb_Embed_Google_Photos {
         require_once plugin_dir_path(__FILE__) . 'includes/GooglePhotos.php';
         require_once plugin_dir_path(__FILE__) . 'includes/custom-post.php';
         require_once plugin_dir_path(__FILE__) . 'includes/admin-menu.php';
-    }
-
-    /**
-     * Runs once when the plugin is activated. Set a flag so the next admin page
-     * load redirects the user to the Galleries screen (where the shortcodes live).
-     */
-    public function onActivate() {
-        add_option('bpgpb_activation_redirect', true);
-    }
-
-    /**
-     * Consume the activation flag and redirect to the Galleries (shortcode) list.
-     * Skipped during bulk plugin activation so we don't hijack that flow.
-     */
-    public function activationRedirect() {
-        if (!get_option('bpgpb_activation_redirect', false)) {
-            return;
-        }
-
-        delete_option('bpgpb_activation_redirect');
-
-        // Presence-only check on a WordPress-core-set flag; no request data is
-        // used, and the redirect is gated by the one-time option above.
-        if (isset($_GET['activate-multi']) || wp_doing_ajax()) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-            return;
-        }
-
-        wp_safe_redirect(admin_url('edit.php?post_type=bpgpb_gallery'));
-        exit;
     }
 
     public function onInit()
