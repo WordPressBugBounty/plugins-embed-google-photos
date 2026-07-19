@@ -16,6 +16,21 @@ if (!class_exists('bpgpb_Admin_Menu')) {
         public function __construct() {
             add_action('admin_enqueue_scripts', [$this, 'adminEnqueueScripts']);
             add_action('admin_menu', [$this, 'adminMenu']);
+            add_action('admin_init', [$this, 'redirectOldMenuSlugs']);
+        }
+
+        public function redirectOldMenuSlugs() {
+            if (is_admin() && isset($_GET['page'])) {
+                global $pagenow;
+                if ($pagenow === 'admin.php' && in_array($_GET['page'], ['wp-google-photos', 'wp-google-photos-pro', 'wp-google-photos-account'], true)) {
+                    wp_safe_redirect(admin_url('edit.php?post_type=bpgpb_gallery&page=wp-google-photos'));
+                    exit;
+                }
+                if ($pagenow === 'edit.php' && $_GET['page'] === 'bpgpb-dashboard') {
+                    wp_safe_redirect(admin_url('edit.php?post_type=bpgpb_gallery&page=wp-google-photos'));
+                    exit;
+                }
+            }
         }
 
         public function adminEnqueueScripts($hook) {
@@ -51,7 +66,7 @@ if (!class_exists('bpgpb_Admin_Menu')) {
                 __('Demo & Help', 'embed-google-photos'),
                 __('Demo & Help', 'embed-google-photos'),
                 'manage_options',
-                'bpgpb-dashboard',
+                'wp-google-photos',
                 [$this, 'dashboardPage']
             );
         }

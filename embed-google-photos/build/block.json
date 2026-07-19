@@ -5,7 +5,7 @@
   "title": "Embed Google Photos",
   "description": "Embed stunning Google Photos galleries directly into your WordPress site with the Google Photos Block plugin.",
   "category": "widgets",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "keywords": [
     "photos",
     "gallery",
@@ -69,6 +69,90 @@
     "hoverEffect": {
       "type": "string",
       "default": "none"
+    },
+    "imageFilter": {
+      "type": "string",
+      "default": "none"
+    },
+    "imageFilterHover": {
+      "type": "boolean",
+      "default": false
+    },
+    "kenBurns": {
+      "type": "boolean",
+      "default": false
+    },
+    "kenBurnsSpeed": {
+      "type": "number",
+      "default": 12
+    },
+    "metaOverlay": {
+      "type": "boolean",
+      "default": false
+    },
+    "showSort": {
+      "type": "boolean",
+      "default": false
+    },
+    "previewLimit": {
+      "type": "number",
+      "default": 0
+    },
+    "showCountBadge": {
+      "type": "boolean",
+      "default": false
+    },
+    "deepLink": {
+      "type": "boolean",
+      "default": false
+    },
+    "lightboxShare": {
+      "type": "boolean",
+      "default": false
+    },
+    "sortColors": {
+      "type": "object",
+      "default": {
+        "color": "#3c4043",
+        "bg": "#ffffff"
+      }
+    },
+    "sortBorderColor": {
+      "type": "string",
+      "default": "#e0e0e0"
+    },
+    "sortTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 13,
+          "tablet": 13,
+          "mobile": 13
+        },
+        "fontFamily": "",
+        "fontWeight": 400,
+        "lineHeight": "140%"
+      }
+    },
+    "countColors": {
+      "type": "object",
+      "default": {
+        "color": "#3c4043",
+        "bg": "#f1f3f4"
+      }
+    },
+    "countTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 13,
+          "tablet": 13,
+          "mobile": 13
+        },
+        "fontFamily": "",
+        "fontWeight": 600,
+        "lineHeight": "140%"
+      }
     },
     "hover": {
       "type": "object",
@@ -166,6 +250,13 @@
         "ratio": "3:4"
       }
     },
+    "focalPoint": {
+      "type": "object",
+      "default": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
     "imgBorder": {
       "type": "object",
       "default": {
@@ -213,6 +304,95 @@
         "color": "#0575e6",
         "side": "all",
         "radius": "3px"
+      }
+    },
+    "showSearch": {
+      "type": "boolean",
+      "default": false
+    },
+    "searchStyle": {
+      "type": "string",
+      "default": "classic"
+    },
+    "showVoiceSearch": {
+      "type": "boolean",
+      "default": true
+    },
+    "searchAutocomplete": {
+      "type": "boolean",
+      "default": false
+    },
+    "searchHighlight": {
+      "type": "boolean",
+      "default": false
+    },
+    "searchResultCount": {
+      "type": "boolean",
+      "default": false
+    },
+    "searchChips": {
+      "type": "boolean",
+      "default": false
+    },
+    "searchIcon": {
+      "type": "string",
+      "default": "search-1"
+    },
+    "searchPlaceholder": {
+      "type": "string",
+      "default": ""
+    },
+    "searchAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "searchWidth": {
+      "type": "string",
+      "default": "300px"
+    },
+    "searchHeight": {
+      "type": "string",
+      "default": "40px"
+    },
+    "searchBgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "searchTextColor": {
+      "type": "string",
+      "default": ""
+    },
+    "searchIconColor": {
+      "type": "string",
+      "default": ""
+    },
+    "searchIconSize": {
+      "type": "number",
+      "default": 18
+    },
+    "searchBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "searchBorderRadius": {
+      "type": "string",
+      "default": "8px"
+    },
+    "searchBorderWidth": {
+      "type": "string",
+      "default": "1px"
+    },
+    "searchTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 14,
+          "tablet": 14,
+          "mobile": 14
+        },
+        "fontFamily": "",
+        "fontWeight": 400,
+        "lineHeight": "140%"
       }
     }
   },
