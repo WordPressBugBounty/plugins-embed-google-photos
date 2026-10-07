@@ -24,6 +24,33 @@ if (!class_exists('bpgpb_Custom_Post_Type')) {
             add_action("manage_{$this->post_type}_posts_custom_column", [$this, 'manageCustomColumns'], 10, 2);
             add_action('use_block_editor_for_post', [$this, 'useBlockEditorForPost'], 999, 2);
             add_action('admin_enqueue_scripts', [$this, 'adminEnqueueScripts']);
+            add_action('current_screen', [$this, 'addHelpTab']);
+        }
+
+        /**
+         * WordPress' own "Help" tab on the gallery screens — the place users
+         * already know to look when they get stuck.
+         */
+        public function addHelpTab($screen) {
+            if (!$screen || $this->post_type !== $screen->post_type) {
+                return;
+            }
+
+            $screen->add_help_tab([
+                'id'      => 'bpgpb_help',
+                'title'   => __('Gallery for Google Photos', 'embed-google-photos'),
+                'content' =>
+                    '<p>' . esc_html__('Create a gallery, pick your photos from Google Photos, then copy the shortcode from the ShortCode column and paste it anywhere.', 'embed-google-photos') . '</p>' .
+                    '<p><strong>' . esc_html__('Connecting your Google account', 'embed-google-photos') . '</strong><br>' .
+                    esc_html__('The plugin uses your own Google API credentials. The guide below walks through creating a Google Cloud project, enabling the Photos Picker API and generating a Client ID, Client Secret and Refresh Token.', 'embed-google-photos') . '</p>' .
+                    '<p><a href="' . esc_url(BPGPB_AUTH_DOCS_URL) . '" target="_blank" rel="noopener noreferrer">' . esc_html__('Google Authorization Guide', 'embed-google-photos') . '</a></p>',
+            ]);
+
+            $screen->set_help_sidebar(
+                '<p><strong>' . esc_html__('For more information:', 'embed-google-photos') . '</strong></p>' .
+                '<p><a href="' . esc_url(BPGPB_DOCS_URL) . '" target="_blank" rel="noopener noreferrer">' . esc_html__('Documentation', 'embed-google-photos') . '</a></p>' .
+                '<p><a href="https://wordpress.org/support/plugin/embed-google-photos/" target="_blank" rel="noopener noreferrer">' . esc_html__('Support Forum', 'embed-google-photos') . '</a></p>'
+            );
         }
 
         public function onInit() {

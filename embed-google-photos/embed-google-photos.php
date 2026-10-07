@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Gallery for Google Photos – Import and Display Photo Albums
+ * Plugin Name: Gallery for Google Photos – share your albums right on your site
  * Plugin URI: https://bplugins.com/plugins/gallery-for-google-photos/
  * Description: Embed stunning Google Photos galleries directly into your WordPress site with the Google Photos Block plugin.
  * Version: 1.3.0
@@ -60,6 +60,33 @@ class bpgpb_Embed_Google_Photos {
         $this->constants_defined();
 
         add_action('init', [$this, 'onInit']);
+        add_filter('plugin_action_links_' . plugin_basename(__FILE__), [$this, 'pluginActionLinks']);
+    }
+
+    /**
+     * Surface the documentation right where users look first — the Plugins screen.
+     */
+    public function pluginActionLinks($links) {
+        // Highlighted so both stand out from the default Deactivate/Opt Out links.
+        $highlight = esc_attr('color:#f18500;font-weight:bold');
+
+        $dashboard = sprintf(
+            '<a href="%s" style="%s">%s</a>',
+            esc_url(admin_url('edit.php?post_type=bpgpb_gallery&page=wp-google-photos')),
+            $highlight,
+            esc_html__('Dashboard!', 'embed-google-photos')
+        );
+
+        $docs = sprintf(
+            '<a href="%s" style="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+            esc_url(BPGPB_DOCS_URL),
+            $highlight,
+            esc_html__('Docs', 'embed-google-photos')
+        );
+
+        array_unshift($links, $dashboard, $docs);
+
+        return $links;
     }
 
     public static function get_instance() {
@@ -77,6 +104,9 @@ class bpgpb_Embed_Google_Photos {
         define('BPGPB_ASSETS_DIR', plugin_dir_url(__FILE__) . 'assets/');
         define('BPGPB_DIR_URL', plugin_dir_url(__FILE__));
         define('BPGPB_DIR_PATH', plugin_dir_path(__FILE__));
+        // Documentation — kept in sync with src/admin/utils/data.js.
+        define('BPGPB_DOCS_URL', 'https://bplugins.com/docs/embed-google-photos/getting-started/');
+        define('BPGPB_AUTH_DOCS_URL', BPGPB_DOCS_URL . '#google-authorization');
     }
 
     public function load_classes () {

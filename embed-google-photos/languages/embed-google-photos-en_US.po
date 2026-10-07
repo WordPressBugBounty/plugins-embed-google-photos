@@ -2,21 +2,21 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gallery for Google Photos – Import and Display Photo Albums 1.3.0\n"
+"Project-Id-Version: Gallery for Google Photos – share your albums right on your site 1.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/embed-google-photos\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-19T13:42:50+00:00\n"
+"POT-Creation-Date: 2026-09-06T11:53:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: embed-google-photos\n"
 
 #. Plugin Name of the plugin
 #: embed-google-photos.php
-msgid "Gallery for Google Photos – Import and Display Photo Albums"
+msgid "Gallery for Google Photos – share your albums right on your site"
 msgstr ""
 
 #. Plugin URI of the plugin
@@ -39,64 +39,106 @@ msgstr ""
 msgid "http://bplugins.com"
 msgstr ""
 
+#: embed-google-photos.php:77
+msgid "Dashboard!"
+msgstr ""
+
+#: embed-google-photos.php:84
+msgid "Docs"
+msgstr ""
+
 #: includes/admin-menu.php:66
-#: includes/admin-menu.php:67
-msgid "Demo & Help"
-msgstr ""
-
-#: includes/custom-post.php:34
-msgid "Galleries"
-msgstr ""
-
-#: includes/custom-post.php:35
-msgid "Gallery"
-msgstr ""
-
-#: includes/custom-post.php:36
-msgid "Google Photos"
-msgstr ""
-
-#: includes/custom-post.php:37
-msgid "All Galleries"
-msgstr ""
-
-#: includes/custom-post.php:38
-msgid "Add New"
-msgstr ""
-
-#: includes/custom-post.php:39
-msgid "Add New Gallery"
-msgstr ""
-
-#: includes/custom-post.php:40
-msgid "Edit Gallery"
+#: includes/admin-menu.php:68
+msgid "Help & Demos"
 msgstr ""
 
 #: includes/custom-post.php:41
-msgid "New Gallery"
-msgstr ""
-
-#: includes/custom-post.php:42
-msgid "View Gallery"
+msgid "Gallery for Google Photos"
 msgstr ""
 
 #: includes/custom-post.php:43
-msgid "Search Galleries"
+msgid "Create a gallery, pick your photos from Google Photos, then copy the shortcode from the ShortCode column and paste it anywhere."
 msgstr ""
 
 #: includes/custom-post.php:44
+msgid "Connecting your Google account"
+msgstr ""
+
+#: includes/custom-post.php:45
+msgid "The plugin uses your own Google API credentials. The guide below walks through creating a Google Cloud project, enabling the Photos Picker API and generating a Client ID, Client Secret and Refresh Token."
+msgstr ""
+
+#: includes/custom-post.php:46
+msgid "Google Authorization Guide"
+msgstr ""
+
+#: includes/custom-post.php:50
+msgid "For more information:"
+msgstr ""
+
+#: includes/custom-post.php:51
+msgid "Documentation"
+msgstr ""
+
+#: includes/custom-post.php:52
+msgid "Support Forum"
+msgstr ""
+
+#: includes/custom-post.php:61
+msgid "Galleries"
+msgstr ""
+
+#: includes/custom-post.php:62
+msgid "Gallery"
+msgstr ""
+
+#: includes/custom-post.php:63
+#: build/index.js:1
+msgid "Google Photos"
+msgstr ""
+
+#: includes/custom-post.php:64
+msgid "All Galleries"
+msgstr ""
+
+#: includes/custom-post.php:65
+msgid "Add New"
+msgstr ""
+
+#: includes/custom-post.php:66
+msgid "Add New Gallery"
+msgstr ""
+
+#: includes/custom-post.php:67
+msgid "Edit Gallery"
+msgstr ""
+
+#: includes/custom-post.php:68
+msgid "New Gallery"
+msgstr ""
+
+#: includes/custom-post.php:69
+msgid "View Gallery"
+msgstr ""
+
+#: includes/custom-post.php:70
+msgid "Search Galleries"
+msgstr ""
+
+#: includes/custom-post.php:71
 msgid "No galleries found."
 msgstr ""
 
-#: includes/custom-post.php:112
+#: includes/custom-post.php:139
 msgid "ShortCode"
 msgstr ""
 
-#: includes/custom-post.php:113
+#: includes/custom-post.php:140
+#: build/index.js:1
 msgid "Date"
 msgstr ""
 
-#: includes/custom-post.php:127
+#: includes/custom-post.php:154
 #: assets/js/admin.js:9
 msgid "Copy To Clipboard"
 msgstr ""
@@ -117,89 +159,961 @@ msgstr ""
 msgid "Copied Successfully!"
 msgstr ""
 
+#: build/index.js:1
+msgid "Photos"
+msgstr ""
+
+#: build/index.js:1
+msgid "Album List"
+msgstr ""
+
+#: build/index.js:1
+msgid "16:9 - Landscape"
+msgstr ""
+
+#: build/index.js:1
+msgid "4:3 - Horizontal"
+msgstr ""
+
+#: build/index.js:1
+msgid "1:1 - Square"
+msgstr ""
+
+#: build/index.js:1
+msgid "3:4 - Vertical"
+msgstr ""
+
+#: build/index.js:1
+msgid "9:16 - Potrait"
+msgstr ""
+
+#: build/index.js:1
+msgid "All Media"
+msgstr ""
+
+#: build/index.js:1
+msgid "Videos"
+msgstr ""
+
+#: build/index.js:1
+msgid "Grid"
+msgstr ""
+
+#: build/index.js:1
+msgid "Masonry"
+msgstr ""
+
+#: build/index.js:1
+msgid "Carousel"
+msgstr ""
+
+#: build/index.js:1
+msgid "Memories (Stories)"
+msgstr ""
+
+#: build/index.js:1
+msgid "None"
+msgstr ""
+
+#: build/index.js:1
+msgid "Zoom"
+msgstr ""
+
+#: build/index.js:1
+msgid "Overlay"
+msgstr ""
+
+#: build/index.js:1
+msgid "Caption Slide-in"
+msgstr ""
+
+#: build/index.js:1
+msgid "Grayscale"
+msgstr ""
+
+#: build/index.js:1
+msgid "Sepia"
+msgstr ""
+
+#: build/index.js:1
+msgid "Vintage"
+msgstr ""
+
+#: build/index.js:1
+msgid "Warm"
+msgstr ""
+
+#: build/index.js:1
+msgid "Cool"
+msgstr ""
+
+#: build/index.js:1
+msgid "Title"
+msgstr ""
+
+#: build/index.js:1
+msgid "Below Image"
+msgstr ""
+
+#: build/index.js:1
+msgid "Overlay (on hover)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show All"
+msgstr ""
+
+#: build/index.js:1
+msgid "Load More"
+msgstr ""
+
+#: build/index.js:1
+msgid "Pagination"
+msgstr ""
+
+#: build/index.js:1
+#: build/view.js:1
+msgid "All"
+msgstr ""
+
+#: build/index.js:1
+msgid "FAVORITES"
+msgstr ""
+
+#: build/index.js:1
+msgid "All Photos"
+msgstr ""
+
+#: build/index.js:1
+msgid "Albums"
+msgstr ""
+
+#: build/index.js:1
+msgid "Favorites"
+msgstr ""
+
+#: build/index.js:1
+msgid "Vertical"
+msgstr ""
+
+#: build/index.js:1
+msgid "Horizontal"
+msgstr ""
+
+#: build/index.js:1
+msgid "General"
+msgstr ""
+
+#: build/index.js:1
+msgid "Style"
+msgstr ""
+
+#: build/index.js:1
+msgid "Select Icon"
+msgstr ""
+
+#: build/index.js:1
+msgid "Select Search Icon"
+msgstr ""
+
+#: build/index.js:1
+msgid "Media Type"
+msgstr ""
+
+#: build/index.js:1
+msgid "Pro features: Add More Photos (unlimited galleries), Album Auto-Sync (every 15 min / hourly / daily), Live Event / Wedding Mode (the gallery updates itself with no reload), Multi-album galleries with tabs, WebP conversion, and Watermark stamping."
+msgstr ""
+
+#: build/index.js:1
+msgid "Caption"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show Caption"
+msgstr ""
+
+#: build/index.js:1
+msgid "Source"
+msgstr ""
+
+#: build/index.js:1
+msgid "Position"
+msgstr ""
+
+#: build/index.js:1
+msgid "Search Bar"
+msgstr ""
+
+#: build/index.js:1
+msgid "Enable Search Bar"
+msgstr ""
+
+#: build/index.js:1
+msgid "Placeholder Text"
+msgstr ""
+
+#: build/index.js:1
+#: build/view.js:1
+msgid "Search photos..."
+msgstr ""
+
+#: build/index.js:1
+msgid "Search Style"
+msgstr ""
+
+#: build/index.js:1
+msgid "Classic (Always Visible)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Expandable (Slide-out)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Search Features"
+msgstr ""
+
+#: build/index.js:1
+msgid "Voice Search"
+msgstr ""
+
+#: build/index.js:1
+msgid "Let visitors search by speaking. Uses the browser's built-in speech recognition; hidden automatically where unsupported."
+msgstr ""
+
+#: build/index.js:1
+msgid "Autocomplete"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show matching photo titles and dates in a dropdown as visitors type."
+msgstr ""
+
+#: build/index.js:1
+msgid "Highlight Matches"
+msgstr ""
+
+#: build/index.js:1
+msgid "Highlight the matched text in captions and suggestions."
+msgstr ""
+
+#: build/index.js:1
+msgid "Result Count"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show a live \"3 of 125 photos\" count while filtering."
+msgstr ""
+
+#: build/index.js:1
+msgid "Year Filter Chips"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show one-click year chips to filter the gallery by date."
+msgstr ""
+
+#: build/index.js:1
+msgid "Hover an option to see what it does."
+msgstr ""
+
+#: build/index.js:1
+msgid "Alignment"
+msgstr ""
+
+#: build/index.js:1
+msgid "Left"
+msgstr ""
+
+#: build/index.js:1
+msgid "Center"
+msgstr ""
+
+#: build/index.js:1
+msgid "Right"
+msgstr ""
+
+#: build/index.js:1
+msgid "Search Bar Width:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Search Icon"
+msgstr ""
+
+#: build/index.js:1
+msgid "Advanced Search (Pro): fuzzy / typo-tolerant matching (\"beech\" finds \"beach\"), a \"/\" focus shortcut, recent searches, \"Did you mean…\" suggestions, and a sticky search bar."
+msgstr ""
+
+#: build/index.js:1
+msgid "Gallery Extras"
+msgstr ""
+
+#: build/index.js:1
+msgid "Sort Dropdown"
+msgstr ""
+
+#: build/index.js:1
+msgid "Let visitors reorder the gallery — Newest, Oldest, or Random."
+msgstr ""
+
+#: build/index.js:1
+msgid "Photo Count Badge"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show a \"125 photos\" badge above the gallery."
+msgstr ""
+
+#: build/index.js:1
+msgid "Preview Limit"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show only the first N photos with a \"View all\" button. 0 = show all."
+msgstr ""
+
+#: build/index.js:1
+msgid "Pro adds Download-all-as-ZIP (visitors save the whole gallery) and Gallery Analytics (views + lightbox opens with a \"most viewed\" dashboard)."
+msgstr ""
+
+#: build/index.js:1
+msgid "Client Delivery (Pro)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Turn any gallery into a client-delivery tool with the Pro version: password-protect the gallery, Client Proofing (visitors heart/select photos and submit them to you by email, with per-photo comments — a Pixieset-style workflow), Media Cleanup Manager, and a Gallery Expiry date that auto-hides the gallery after a set time."
+msgstr ""
+
+#: build/index.js:1
+msgid "Lightbox"
+msgstr ""
+
+#: build/index.js:1
+msgid "To see how the lightbox actually looks, view it on the frontend."
+msgstr ""
+
+#: build/index.js:1
+msgid "Thumbnails Bar"
+msgstr ""
+
+#: build/index.js:1
+msgid "Download Button"
+msgstr ""
+
+#: build/index.js:1
+msgid "Add a download button to the lightbox toolbar so visitors can save the original image."
+msgstr ""
+
+#: build/index.js:1
+msgid "Social Share Buttons"
+msgstr ""
+
+#: build/index.js:1
+msgid "Add Facebook, X, Pinterest and Copy-link buttons to the lightbox toolbar."
+msgstr ""
+
+#: build/index.js:1
+msgid "Deep-link to Photo"
+msgstr ""
+
+#: build/index.js:1
+msgid "Update the page URL when a photo opens (?photo=N) so a direct link reopens it."
+msgstr ""
+
+#: build/index.js:1
+msgid "Slideshow Autoplay"
+msgstr ""
+
+#: build/index.js:1
+msgid "Slideshow Speed (ms)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Pro adds premium lightbox skins (Dark, Light, Glass, Minimal) and EXIF display — camera, lens, aperture, shutter and ISO under each photo."
+msgstr ""
+
+#: build/index.js:1
+msgid "Video"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show Controls"
+msgstr ""
+
+#: build/index.js:1
+msgid "Autoplay"
+msgstr ""
+
+#: build/index.js:1
+msgid "Videos are muted automatically when autoplay is on (required by browsers)."
+msgstr ""
+
+#: build/index.js:1
+msgid "Muted"
+msgstr ""
+
+#: build/index.js:1
+msgid "Loop"
+msgstr ""
+
+#: build/index.js:1
+msgid "Fit To Window Height"
+msgstr ""
+
+#: build/index.js:1
+msgid "Fit the video player to the window height (keeping aspect ratio). Turn off to use the default width-based height."
+msgstr ""
+
+#: build/index.js:1
+msgid "Autoplay videos right in the gallery grid as live previews with the Pro version."
+msgstr ""
+
+#: build/index.js:1
+msgid "Type"
+msgstr ""
+
+#: build/index.js:1
+msgid "Items Per Page"
+msgstr ""
+
+#: build/index.js:1
+msgid "Button Text"
+msgstr ""
+
+#: build/index.js:1
+msgid "Frontend Filter"
+msgstr ""
+
+#: build/index.js:1
+msgid "Let visitors filter the gallery by Photos / Videos on the frontend (isotope-style) with the Pro version."
+msgstr ""
+
+#: build/index.js:1
+msgid "Image Aspect Ratio"
+msgstr ""
+
+#: build/index.js:1
+msgid "Ratio"
+msgstr ""
+
+#: build/index.js:1
+msgid "Layout"
+msgstr ""
+
+#: build/index.js:1
+msgid "Justified, Mosaic and Timeline (date-grouped) layouts — plus one-click Design Presets — are available in the Premium version."
+msgstr ""
+
+#: build/index.js:1
+msgid "Columns:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Column Gap:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Row Gap:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Carousel Settings"
+msgstr ""
+
+#: build/index.js:1
+msgid "Autoplay Speed (ms)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Navigation Arrows"
+msgstr ""
+
+#: build/index.js:1
+msgid "Pagination Dots"
+msgstr ""
+
+#: build/index.js:1
+msgid "Advanced carousel options (effects, transition speed, centered slides, free mode…) are available in the Pro version."
+msgstr ""
+
+#: build/index.js:1
+msgid "Load More Button"
+msgstr ""
+
+#: build/index.js:1
+msgid "Image"
+msgstr ""
+
+#: build/index.js:1
+msgid "Border"
+msgstr ""
+
+#: build/index.js:1
+msgid "Hover Effect"
+msgstr ""
+
+#: build/index.js:1
+msgid "Photo Filter"
+msgstr ""
+
+#: build/index.js:1
+msgid "Reveal original on hover"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show the unfiltered image when a visitor hovers over it, with a smooth transition."
+msgstr ""
+
+#: build/index.js:1
+msgid "Zoom Amount (%)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Overlay Color"
+msgstr ""
+
+#: build/index.js:1
+msgid "Animation Speed (ms)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Ken Burns Motion"
+msgstr ""
+
+#: build/index.js:1
+msgid "Slow, continuous zoom / pan on gallery images — great for hero backgrounds and kiosks."
+msgstr ""
+
+#: build/index.js:1
+msgid "Motion Speed (seconds per cycle)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Lower = faster motion, higher = slower."
+msgstr ""
+
+#: build/index.js:1
+msgid "Reset to default"
+msgstr ""
+
+#: build/index.js:1
+msgid "Meta Overlay on Hover"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show each photo's date and dimensions on hover."
+msgstr ""
+
+#: build/index.js:1
+msgid "Pro unlocks advanced image styling — box shadow, advanced (per-corner) radius, gradient overlays, hover icon — plus per-image custom links, right-click / download protection and password-protected galleries."
+msgstr ""
+
+#: build/index.js:1
+msgid "Typography"
+msgstr ""
+
+#: build/index.js:1
+msgid "Color"
+msgstr ""
+
+#: build/index.js:1
+msgid "Text Color"
+msgstr ""
+
+#: build/index.js:1
+msgid "Background Color"
+msgstr ""
+
+#: build/index.js:1
+msgid "Border Color"
+msgstr ""
+
+#: build/index.js:1
+msgid "Icon Color"
+msgstr ""
+
+#: build/index.js:1
+msgid "Icon Size (px)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Search Bar Height (px)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Border Width (px)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Border Radius (px)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Sort & Count Badge"
+msgstr ""
+
+#: build/index.js:1
+msgid "Colors"
+msgstr ""
+
+#: build/index.js:1
+msgid "Image Alt Text (SEO)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Describe each image for screen readers and search engines. Leave blank to use the image title."
+msgstr ""
+
+#: build/index.js:1
+msgid "Describe this image…"
+msgstr ""
+
+#: build/index.js:1
+msgid "Focal Point (Crop)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Drag the point to choose which part of each image stays in view when it is cropped. This applies to cropping layouts — Grid and Mosaic with a fixed aspect ratio."
+msgstr ""
+
+#: build/index.js:1
+msgid "Each image only shifts along the axis where it is actually cropped: wide (landscape) photos move left/right, tall (portrait) photos move up/down, and photos that already match the chosen ratio will not move."
+msgstr ""
+
+#: build/index.js:1
+msgid "Crop preview"
+msgstr ""
+
+#: build/index.js:1
+msgid "Reset to center"
+msgstr ""
+
+#: build/index.js:1
+msgid "Fine-tune per image"
+msgstr ""
+
+#: build/index.js:1
+msgid "Override the focal point for specific photos."
+msgstr ""
+
+#: build/index.js:1
+msgid "Use global focal point"
+msgstr ""
+
+#: build/index.js:1
+msgid "Reorder Photos"
+msgstr ""
+
+#: build/index.js:1
+msgid "Drag the thumbnails to change the order photos appear in the gallery."
+msgstr ""
+
+#: build/index.js:1
+msgid "Photo"
+msgstr ""
+
+#: build/index.js:1
+msgid "Invalid JSON — please check the text and try again."
+msgstr ""
+
+#: build/index.js:1
+msgid "This does not look like a gallery configuration."
+msgstr ""
+
+#: build/index.js:1
+msgid "Settings imported."
+msgstr ""
+
+#: build/index.js:1
+msgid "Import / Export"
+msgstr ""
+
+#: build/index.js:1
+msgid "Copy this gallery's styling & layout as JSON to reuse on another gallery or site. Your photos are not included."
+msgstr ""
+
+#: build/index.js:1
+msgid "Export"
+msgstr ""
+
+#: build/index.js:1
+msgid "Settings copied to clipboard."
+msgstr ""
+
+#: build/index.js:1
+msgid "Could not copy — select the text and copy manually."
+msgstr ""
+
+#: build/index.js:1
+msgid "Clipboard unavailable — select the text and copy manually."
+msgstr ""
+
+#: build/index.js:1
+msgid "Copy"
+msgstr ""
+
+#: build/index.js:1
+msgid "Download .json"
+msgstr ""
+
+#: build/index.js:1
+msgid "Import"
+msgstr ""
+
+#: build/index.js:1
+msgid "Paste gallery configuration JSON here…"
+msgstr ""
+
+#: build/index.js:1
+msgid "Upload .json"
+msgstr ""
+
+#: build/index.js:1
 #: build/view.js:1
 msgid "videos"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "photos"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 #, js-format
 msgid "No %s found in this gallery."
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "Show all media"
 msgstr ""
 
-#: build/view.js:1
-msgid "Search photos..."
-msgstr ""
-
+#: build/index.js:1
 #: build/view.js:1
 msgid "Clear search"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "Stop voice search"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "Search by voice"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "Filter by year"
 msgstr ""
 
-#: build/view.js:1
-msgid "All"
-msgstr ""
-
+#: build/index.js:1
 #: build/view.js:1
 #, js-format
 msgid "%1$d of %2$d photos"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 #, js-format
 msgid "%d photos"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "Sort photos"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "Default order"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "Newest first"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "Oldest first"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "Random"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 msgid "No matching photos found."
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 #, js-format
 msgid "Memory %d"
 msgstr ""
 
+#: build/index.js:1
 #: build/view.js:1
 #, js-format
 msgid "View all %d photos"
+msgstr ""
+
+#: build/index.js:1
+msgid "Copy this shortcode and paste it into your post, page, or text widget content"
+msgstr ""
+
+#: build/index.js:1
+msgid "Copied!"
+msgstr ""
+
+#: build/index.js:1
+msgid "We could not verify your credentials. Please double-check them and try again."
+msgstr ""
+
+#: build/index.js:1
+msgid "Disconnected. Your credentials were removed."
+msgstr ""
+
+#: build/index.js:1
+msgid "Connected! Your Google Photos account is ready."
+msgstr ""
+
+#: build/index.js:1
+msgid "Google Photos Block"
+msgstr ""
+
+#: build/index.js:1
+msgid "Authorization"
+msgstr ""
+
+#: build/index.js:1
+msgid "Enter your Google API credentials to connect your account."
+msgstr ""
+
+#: build/index.js:1
+msgid "First time? Read the setup guide →"
+msgstr ""
+
+#: build/index.js:1
+msgid "Step-by-step: create a Google Cloud project, enable the Photos Picker API and generate your Client ID, Client Secret and Refresh Token."
+msgstr ""
+
+#: build/index.js:1
+msgid "✓ Connected. For your security, saved credentials are never shown again — leave a field blank to keep it, or re-enter to replace it."
+msgstr ""
+
+#: build/index.js:1
+msgid "See the setup guide"
+msgstr ""
+
+#: build/index.js:1
+msgid "Client ID"
+msgstr ""
+
+#: build/index.js:1
+msgid "Client Secret"
+msgstr ""
+
+#: build/index.js:1
+msgid "Refresh Token"
+msgstr ""
+
+#: build/index.js:1
+msgid "Client ID is required."
+msgstr ""
+
+#: build/index.js:1
+msgid "Client Secret is required."
+msgstr ""
+
+#: build/index.js:1
+msgid "Refresh Token is required."
+msgstr ""
+
+#: build/index.js:1
+msgid "This usually ends with \".apps.googleusercontent.com\"."
+msgstr ""
+
+#: build/index.js:1
+msgid "Please fix the highlighted fields below."
+msgstr ""
+
+#: build/index.js:1
+msgid "Saving…"
+msgstr ""
+
+#: build/index.js:1
+msgid "Update Credentials"
+msgstr ""
+
+#: build/index.js:1
+msgid "Save Information"
+msgstr ""
+
+#: build/index.js:1
+msgid "Disconnect account"
+msgstr ""
+
+#: build/index.js:1
+msgid "Checking connection…"
+msgstr ""
+
+#: build/index.js:1
+msgid "Working…"
+msgstr ""
+
+#: build/index.js:1
+msgid "Cancelling…"
+msgstr ""
+
+#: build/index.js:1
+msgid "Cancel"
+msgstr ""
+
+#: build/index.js:1
+msgid "Select photos from Google Photos"
+msgstr ""
+
+#: build/index.js:1
+msgid "Pick images and videos to display in your gallery."
+msgstr ""
+
+#: build/index.js:1
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: build/index.js:1
+msgid "Change photos"
+msgstr ""
+
+#: build/index.js:1
+msgid "Select from Google Photos"
+msgstr ""
+
+#: build/index.js:1
+msgid "Auto-sync a shared Google Photos album — new photos appear automatically — with the Pro version."
+msgstr ""
+
+#: build/index.js:1
+msgid "Connect your Google Photos account"
+msgstr ""
+
+#: build/index.js:1
+msgid "Authorize the plugin to start embedding your Google Photos galleries."
+msgstr ""
+
+#: build/index.js:1
+msgid "Open authorization"
+msgstr ""
+
+#: build/index.js:1
+msgid "How to get your Google credentials →"
 msgstr ""
 
 #: build/block.json

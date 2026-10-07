@@ -63,8 +63,9 @@ if (!class_exists('bpgpb_Admin_Menu')) {
         public function adminMenu() {
             $this->page_hook = add_submenu_page(
                 'edit.php?post_type=bpgpb_gallery',
-                __('Demo & Help', 'embed-google-photos'),
-                __('Demo & Help', 'embed-google-photos'),
+                __('Help & Demos', 'embed-google-photos'),
+                // Highlighted in the submenu so it stands out from the CPT items.
+                '<span style="color: #f18500; font-weight: 600;">' . __('Help & Demos', 'embed-google-photos') . '</span>',
                 'manage_options',
                 'wp-google-photos',
                 [$this, 'dashboardPage']
