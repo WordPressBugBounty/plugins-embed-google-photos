@@ -25,6 +25,44 @@ if (!class_exists('bpgpb_Custom_Post_Type')) {
             add_action('use_block_editor_for_post', [$this, 'useBlockEditorForPost'], 999, 2);
             add_action('admin_enqueue_scripts', [$this, 'adminEnqueueScripts']);
             add_action('current_screen', [$this, 'addHelpTab']);
+            add_action('admin_notices', [$this, 'whatsNew']);
+            add_action('admin_post_bpgpb_whats_new_seen', [$this, 'whatsNewSeen']);
+        }
+
+        /**
+         * "What's new" notice after an update, shown once per version to admins
+         * on the plugin's own "Google Photos" menu screens (not the editor),
+         * until dismissed.
+         */
+        const WHATS_NEW = '1.3.1';
+
+        public function whatsNew() {
+            $screen = get_current_screen();
+            if (!$screen || !current_user_can('manage_options') || $this->post_type !== $screen->post_type || 'post' === $screen->base) {
+                return;
+            }
+            if (self::WHATS_NEW === get_user_meta(get_current_user_id(), 'bpgpb_whats_new_seen', true)) {
+                return;
+            }
+            printf(
+                '<div class="notice notice-info"><p><strong>%1$s</strong> %2$s</p><p><a href="%3$s">%4$s</a> &nbsp;|&nbsp; <a href="%5$s" target="_blank" rel="noopener noreferrer">%6$s</a> &nbsp;|&nbsp; <a href="%7$s">%8$s</a></p></div>',
+                /* translators: %s: plugin version */
+                esc_html(sprintf(__('New in Gallery for Google Photos %s:', 'embed-google-photos'), self::WHATS_NEW)),
+                esc_html__('add a shared Google Photos album, no Client ID or Client Secret needed. Paste the album link in the gallery and click Save & Sync. Photos can stay on Google Photos, so they use no space on your server.', 'embed-google-photos'),
+                esc_url(admin_url('post-new.php?post_type=' . $this->post_type)),
+                esc_html__('Add an album', 'embed-google-photos'),
+                esc_url('https://www.youtube.com/watch?v=bCVATx0aCN4'),
+                esc_html__('▶ Watch (35 sec)', 'embed-google-photos'),
+                esc_url(wp_nonce_url(admin_url('admin-post.php?action=bpgpb_whats_new_seen'), 'bpgpb_whats_new_seen')),
+                esc_html__('Dismiss', 'embed-google-photos')
+            );
+        }
+
+        public function whatsNewSeen() {
+            check_admin_referer('bpgpb_whats_new_seen');
+            update_user_meta(get_current_user_id(), 'bpgpb_whats_new_seen', self::WHATS_NEW);
+            wp_safe_redirect(wp_get_referer() ? wp_get_referer() : admin_url());
+            exit;
         }
 
         /**
@@ -44,6 +82,31 @@ if (!class_exists('bpgpb_Custom_Post_Type')) {
                     '<p><strong>' . esc_html__('Connecting your Google account', 'embed-google-photos') . '</strong><br>' .
                     esc_html__('The plugin uses your own Google API credentials. The guide below walks through creating a Google Cloud project, enabling the Photos Picker API and generating a Client ID, Client Secret and Refresh Token.', 'embed-google-photos') . '</p>' .
                     '<p><a href="' . esc_url(BPGPB_AUTH_DOCS_URL) . '" target="_blank" rel="noopener noreferrer">' . esc_html__('Google Authorization Guide', 'embed-google-photos') . '</a></p>',
+            ]);
+
+            // YouTube ids, kept in sync with videos in src/admin/utils/data.js.
+            $videos = [
+                'ufKMktJm1ho' => __('Connect Google Photos (quick start)', 'embed-google-photos'),
+                'bCVATx0aCN4' => __('Show a shared album, kept on Google Photos', 'embed-google-photos'),
+                '7HSCQyEcj4Q' => __('Gallery layouts', 'embed-google-photos'),
+                'iqEEWkPLGhg' => __('Lightbox', 'embed-google-photos'),
+                'Xhtj8BHlCis' => __('Live search & filters', 'embed-google-photos'),
+                '66xcoyUd0-4' => __('Photos & videos', 'embed-google-photos'),
+                'PdxgwOOt8jM' => __('Hover effects, filters & motion', 'embed-google-photos'),
+                'j3qaTZW8BRo' => __('Pagination & sorting', 'embed-google-photos'),
+                '7g4miYg2Ah8' => __('Carousels & sliders', 'embed-google-photos'),
+                'hiF4acT4JnQ' => __('Responsive & SEO', 'embed-google-photos'),
+            ];
+            $links = '';
+            foreach ($videos as $id => $label) {
+                $links .= '<li><a href="' . esc_url('https://www.youtube.com/watch?v=' . $id) . '" target="_blank" rel="noopener noreferrer">' . esc_html($label) . '</a></li>';
+            }
+            $screen->add_help_tab([
+                'id'      => 'bpgpb_help_videos',
+                'title'   => __('Video Tutorials', 'embed-google-photos'),
+                'content' =>
+                    '<ul>' . $links . '</ul>' .
+                    '<p>' . esc_html__('Tip: click the ▶ icon next to a settings panel to watch its video.', 'embed-google-photos') . ' <a href="https://www.youtube.com/playlist?list=PLTY5b5svgjQs" target="_blank" rel="noopener noreferrer">' . esc_html__('All videos on YouTube', 'embed-google-photos') . '</a></p>',
             ]);
 
             $screen->set_help_sidebar(
@@ -143,13 +206,17 @@ if (!class_exists('bpgpb_Custom_Post_Type')) {
 
         public function manageCustomColumns($column_name, $post_id) {
             if ('shortcode' === $column_name) {
-                $post_id = absint($post_id);
+                $post_id   = absint($post_id);
+                $shortcode = '[google_photos id=' . $post_id . ']';
+                // size= fits the box to the shortcode so long IDs aren't cut off.
                 printf(
                     '<div class="bpgpbFrontShortcode" id="bpgpbFrontShortcode-%1$s">
-                        <input value="[google_photos id=%1$s]" onclick="bpgpbHandleShortcode( %2$s )" readonly>
-                        <span class="tooltip">%3$s</span>
+                        <input value="%2$s" size="%3$d" onclick="bpgpbHandleShortcode( %4$s )" readonly>
+                        <span class="tooltip">%5$s</span>
                     </div>',
                     esc_attr($post_id),
+                    esc_attr($shortcode),
+                    strlen($shortcode),
                     esc_js($post_id),
                     esc_html__('Copy To Clipboard', 'embed-google-photos')
                 );

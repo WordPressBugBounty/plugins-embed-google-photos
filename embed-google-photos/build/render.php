@@ -63,15 +63,20 @@ if ( ! empty( $attributes['selectedPhotos'] ) && is_array( $attributes['selected
 			$bpgpb_photo['srcset'] = preg_replace( '/[<>"\']/', '', (string) $bpgpb_photo['srcset'] );
 		}
 
-		$bpgpb_att_id = isset( $bpgpb_photo['id'] ) ? absint( $bpgpb_photo['id'] ) : 0;
-		if ( ! $bpgpb_att_id ) {
+		// Shared-album photos kept on Google carry their own placeholder/srcset and
+		// have no attachment to enrich from; they still get their Schema.org entry.
+		if ( isset( $bpgpb_photo['remote'] ) ) {
+			$bpgpb_photo['remote'] = ! empty( $bpgpb_photo['remote'] );
+		}
+		$bpgpb_att_id = ( isset( $bpgpb_photo['id'] ) && empty( $bpgpb_photo['remote'] ) ) ? absint( $bpgpb_photo['id'] ) : 0;
+		if ( ! $bpgpb_att_id && empty( $bpgpb_photo['remote'] ) ) {
 			continue;
 		}
 
 		// Blur-up placeholder: the WordPress "thumbnail" size (~150px) loads almost
 		// instantly and looks good blurred. Videos aren't image attachments, so
 		// fall back to their stored poster.
-		if ( empty( $bpgpb_photo['placeholder'] ) ) {
+		if ( $bpgpb_att_id && empty( $bpgpb_photo['placeholder'] ) ) {
 			$bpgpb_ph = wp_get_attachment_image_url( $bpgpb_att_id, 'thumbnail' );
 			if ( $bpgpb_ph ) {
 				$bpgpb_photo['placeholder'] = $bpgpb_ph;
@@ -83,7 +88,7 @@ if ( ! empty( $attributes['selectedPhotos'] ) && is_array( $attributes['selected
 		// Responsive srcset: all image sizes WordPress generated for this
 		// attachment, so the browser downloads the one that fits the display
 		// width. Returns false for videos (not image attachments).
-		if ( empty( $bpgpb_photo['srcset'] ) ) {
+		if ( $bpgpb_att_id && empty( $bpgpb_photo['srcset'] ) ) {
 			$bpgpb_srcset = wp_get_attachment_image_srcset( $bpgpb_att_id, 'full' );
 			if ( $bpgpb_srcset ) {
 				$bpgpb_photo['srcset'] = $bpgpb_srcset;
@@ -92,7 +97,7 @@ if ( ! empty( $attributes['selectedPhotos'] ) && is_array( $attributes['selected
 
 		// Alt text: fall back to the Media Library attachment's alt when the
 		// block has no custom alt, so existing galleries still get one.
-		if ( empty( $bpgpb_photo['alt'] ) ) {
+		if ( $bpgpb_att_id && empty( $bpgpb_photo['alt'] ) ) {
 			$bpgpb_alt = get_post_meta( $bpgpb_att_id, '_wp_attachment_image_alt', true );
 			if ( $bpgpb_alt ) {
 				$bpgpb_photo['alt'] = $bpgpb_alt;

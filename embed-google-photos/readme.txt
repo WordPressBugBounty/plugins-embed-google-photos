@@ -4,12 +4,12 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, photos, google photos, gallery, album
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.3.0 
+Stable tag: 1.3.1
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Import your Google Photos into WordPress and show them as responsive grid, masonry, carousel, or story galleries via block or shortcode.
+Import Google Photos or paste a shared album link, and show them as responsive grid, masonry, carousel, or story galleries.
 
 == Description ==
 
@@ -17,9 +17,9 @@ Import your Google Photos into WordPress and show them as responsive grid, mason
 
 [Gallery for Google Photos](https://bplugins.com/products/embed-google-photos/) | [Documentation](https://bplugins.com/docs/embed-google-photos/getting-started/) | [Pricing](https://bplugins.com/products/embed-google-photos/pricing/) | [Support](https://bplugins.com/support/) | [Demo](https://bplugins.com/products/embed-google-photos/#demos)
 
-https://www.youtube.com/watch?v=91YUPCNaBGQ
+https://www.youtube.com/watch?v=3-hGZiDSo1g
 
-[Gallery for Google Photos](https://bplugins.com/products/embed-google-photos/) publishes your Google Photos library without coding. Choose a layout, set responsive columns, add captions and hover effects, and open photos in a full-screen lightbox with video playback. Because the photos you pick are copied into your own Media Library, your galleries keep working even after your Google session expires.
+[Gallery for Google Photos](https://bplugins.com/products/embed-google-photos/) publishes your Google Photos library without coding. Choose a layout, set responsive columns, add captions and hover effects, and open photos in a full-screen lightbox with video playback. Because the photos you pick are copied into your own Media Library, your galleries keep working even after your Google session expires. You can also add a whole shared album by pasting its link, with no Google keys needed, and keep its photos on Google Photos so they use no space on your server.
 
 Use it for photography portfolios, travel blogs, event recaps, real-estate listings, or client galleries. It works with any WordPress theme.
 
@@ -28,12 +28,14 @@ Use it for photography portfolios, travel blogs, event recaps, real-estate listi
 **Import & Connection**
 
 - **Photo & Video Import**: Import from Google Photos with the official Photos Picker.
+- **Shared Album Link**: Paste a shared album link and click Save & Sync. No Client ID or Client Secret needed.
+- **Keep Photos on Google Photos**: Album photos load straight from Google and use no space on your server, or copy them to your Media Library instead.
 - **Saved to Media Library**: Media is stored in your own Media Library, so galleries keep working.
 - **Self-Hosted OAuth**: Your Google credentials stay on your server, never sent to us.
 - **Authorization Sidebar**: Field validation, loading state, one-click connect/disconnect.
 - **Media Type Filter**: Show All Media, Photos only, or Videos only.
 
-**Layouts** 
+**Layouts**
 
 - **Grid Layout**: A fully responsive photo grid.
 - **Masonry Layout**: Pinterest-style layout; every image keeps its own ratio.
@@ -68,7 +70,7 @@ Use it for photography portfolios, travel blogs, event recaps, real-estate listi
 - **Focal Point Crop**: One crop focus for all images with a live preview, plus per-photo fine-tuning so faces are never cut off.
 - **Ken Burns Motion**: Continuous zoom / pan at an adjustable speed; great for hero backgrounds and kiosks.
 
-**Lightbox** 
+**Lightbox**
 
 - **Fancybox Lightbox**: Full-screen viewer with photo and video playback.
 - **Lightbox Navigation**: Caption, keyboard navigation, slideshow autoplay, thumbnails bar.
@@ -93,6 +95,7 @@ Use it for photography portfolios, travel blogs, event recaps, real-estate listi
 
 **Usability**
 
+- **Gallery Templates**: 30 ready-made gallery templates by niche (13 Free, 17 Pro), one click from the editor toolbar. Pro templates are locked in the free version.
 - **Drag-to-Reorder**: Rearrange selected photos in the editor.
 - **Frontend Sort Dropdown**: Visitors reorder by Newest, Oldest, or Random.
 - **Photo Count Badge**: Show a "125 photos" badge above the gallery.
@@ -155,7 +158,6 @@ Use it for photography portfolios, travel blogs, event recaps, real-estate listi
 - **Sync Interval Choice**: Check every 15 minutes, hourly, or daily.
 - **Live Event / Wedding Mode**: Open pages refresh themselves and reveal newly synced photos with no reload, behind a pulsing "Live · N new" badge. Guests drop photos into the shared album and the wall updates itself.
 - **Multi-Album per Gallery**: Pull from several shared albums, with an optional album-tab switcher.
-- **Shared Album Embed**: Display any public shared album without full OAuth setup.
 - **Bulk Album Import**: Import a whole shared album in one sync.
 
 **Gallery Protection**
@@ -241,9 +243,9 @@ Yes. Your Google Client ID, Client Secret, and Refresh Token are stored only in 
 
 Paste a public shared Google Photos album URL into the block. The plugin uses WP-Cron to check the album on your chosen interval and automatically imports any new photos into your Media Library and gallery. No manual re-importing needed.
 
-= Can I embed a shared Google Photos album without OAuth? =
+= Can I show a shared Google Photos album without OAuth? =
 
-Yes (Pro). You can paste any public shared Google Photos album URL and the plugin will import the photos without requiring full OAuth credentials.
+Yes, in the free version. Paste the album's share link into the block and click Save & Sync. No Client ID or Client Secret is needed, and with "Keep photos on Google Photos" the photos load straight from Google. Pro adds auto-sync, several albums with tabs, and Live Event Mode.
 
 = Can I password-protect a gallery? =
 
@@ -292,19 +294,28 @@ Please report security bugs found in the source code of the Gallery for Google P
 
 == Screenshots ==
 
-1. Settings
-2. Default
-3. Favorite
-4. Only Photos
-5. Only Videos
-6. Specific Album
-7. Ratio Square
-8. Ratio Landscape
-9. Ratio Horizontal
-10. Ratio Potrait
+1. Gallery block settings in the editor sidebar.
+2. Connect Google Photos in the Authorization sidebar, then pick photos or sync a shared album.
+3. Gallery Templates: import one of 30 ready-made designs in one click (13 free, 17 Pro).
+4. Layout panel: Grid, Masonry, Carousel and Stories (Justified, Mosaic and Timeline in Pro).
+5. Search Bar settings: voice search, autocomplete, highlighted matches and year chips.
+6. Lightbox settings: captions, thumbnails, download, share buttons and slideshow (EXIF in Pro).
+7. Design Presets: a finished look in one click (2 presets free, 8 in Pro).
+8. Album Auto-Sync: keep a gallery in sync with a shared Google Photos album (Pro).
+9. Client Picks: see the photos your clients selected (Pro).
+10. Gallery Analytics: views and lightbox opens for every gallery (Pro).
+11. Media Cleanup: storage per gallery and cleanup of orphaned photos (Pro).
+12. Protection: right-click lock, gallery password and expiry date (Pro).
 
 
 == Changelog ==
+
+= 1.3.1 - 18 October, 2026 =
+* New: Gallery Templates – 30 ready-made gallery templates (13 Free, 17 Pro) in the editor toolbar. Pro templates are locked in the free version.
+* New: Add a shared Google Photos album to a gallery. Paste the album link and click Save & Sync — no Google Client ID or Client Secret needed.
+* New: "Keep photos on Google Photos" — album photos load straight from Google and use no space on your server. Turn it off to copy them to your Media Library instead.
+* Improved: Without a Client ID and Client Secret the block now shows the album link first, with a short note that "Select from Google Photos" needs them.
+* Improved: Short video tutorials — a "▶" link at the bottom of the main settings panels opens that feature's 25-second video on YouTube.
 
 = 1.3.0 - 18 July, 2026 =
 * New (Pro): Timeline layout — group photos by day / month / year with sticky date headers.
@@ -375,14 +386,17 @@ Please report security bugs found in the source code of the Gallery for Google P
 
 == Upgrade Notice ==
 
+= 1.3.1 - 18 October, 2026 =
+* Add a shared Google Photos album without a Client ID or Client Secret, and keep its photos on Google to save server space.
+
 = 1.3.0 - 18 July, 2026 =
-* Adds live search with voice input and year filters, visual filter presets, focal-point cropping, Ken Burns motion, the Memories layout, lightbox sharing and downloads, and JSON import/export. Also includes a security hardening pass (per-image link sanitization and SSRF-hardened album fetching) and uninstall cleanup for stored credentials.
+* Adds live search, visual filter presets, focal-point cropping, Ken Burns motion, the Memories layout, lightbox sharing and downloads, and JSON import/export. Includes security hardening (link sanitization, safer album fetching).
 
 = 1.2.2 - 16 July, 2026 =
 * Minor bug fix.
 
 = 1.2.1 - 14 July, 2026 =
-Important: Google shut down the old Google Photos API this plugin used, so galleries built the old way may no longer show your images. This version adds Google's new Photos Picker system — after updating, open the block, reconnect your Google account, and re-select your photos (they are now saved to your own Media Library and keep working). Also a recommended security fix (stored XSS + write-only credentials).
+Important: Google shut down its old Photos API, so older galleries may stop showing images. After updating, open the block, reconnect your Google account and re-select your photos (now saved to your Media Library). Also includes a security fix.
 
 = 1.0.9 - 28 Dec, 2024 =
 * Frontend useAjax use.

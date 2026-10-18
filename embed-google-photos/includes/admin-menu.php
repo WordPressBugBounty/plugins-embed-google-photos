@@ -20,13 +20,15 @@ if (!class_exists('bpgpb_Admin_Menu')) {
         }
 
         public function redirectOldMenuSlugs() {
-            if (is_admin() && isset($_GET['page'])) {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only redirect of an old menu slug; nothing is saved.
+            $page = isset($_GET['page']) ? sanitize_key(wp_unslash($_GET['page'])) : '';
+            if (is_admin() && $page) {
                 global $pagenow;
-                if ($pagenow === 'admin.php' && in_array($_GET['page'], ['wp-google-photos', 'wp-google-photos-pro', 'wp-google-photos-account'], true)) {
+                if ($pagenow === 'admin.php' && in_array($page, ['wp-google-photos', 'wp-google-photos-pro', 'wp-google-photos-account'], true)) {
                     wp_safe_redirect(admin_url('edit.php?post_type=bpgpb_gallery&page=wp-google-photos'));
                     exit;
                 }
-                if ($pagenow === 'edit.php' && $_GET['page'] === 'bpgpb-dashboard') {
+                if ($pagenow === 'edit.php' && $page === 'bpgpb-dashboard') {
                     wp_safe_redirect(admin_url('edit.php?post_type=bpgpb_gallery&page=wp-google-photos'));
                     exit;
                 }

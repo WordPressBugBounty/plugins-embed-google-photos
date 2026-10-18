@@ -1,9 +1,8 @@
 <?php
 /**
  * Plugin Name: Gallery for Google Photos – share your albums right on your site
- * Plugin URI: https://bplugins.com/plugins/gallery-for-google-photos/
  * Description: Embed stunning Google Photos galleries directly into your WordPress site with the Google Photos Block plugin.
- * Version: 1.3.0
+ * Version: 1.3.1
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * License: GPLv3 or later
@@ -60,6 +59,7 @@ class bpgpb_Embed_Google_Photos {
         $this->constants_defined();
 
         add_action('init', [$this, 'onInit']);
+        add_action('enqueue_block_editor_assets', [$this, 'enqueueTemplateLibrary']);
         add_filter('plugin_action_links_' . plugin_basename(__FILE__), [$this, 'pluginActionLinks']);
     }
 
@@ -100,7 +100,7 @@ class bpgpb_Embed_Google_Photos {
 
     public function constants_defined() {
         // Constant
-        define( 'BPGPB_PLUGIN_VERSION', '1.3.0' );
+        define( 'BPGPB_PLUGIN_VERSION', '1.3.1' );
         define('BPGPB_ASSETS_DIR', plugin_dir_url(__FILE__) . 'assets/');
         define('BPGPB_DIR_URL', plugin_dir_url(__FILE__));
         define('BPGPB_DIR_PATH', plugin_dir_path(__FILE__));
@@ -113,7 +113,9 @@ class bpgpb_Embed_Google_Photos {
         require_once plugin_dir_path(__FILE__) . 'includes/google-api.php';
         require_once plugin_dir_path(__FILE__) . 'includes/GooglePhotos.php';
         require_once plugin_dir_path(__FILE__) . 'includes/custom-post.php';
+        require_once plugin_dir_path(__FILE__) . 'includes/album-link.php';
         require_once plugin_dir_path(__FILE__) . 'includes/admin-menu.php';
+        require_once plugin_dir_path(__FILE__) . 'includes/templates.php';
     }
 
     public function onInit()
@@ -122,6 +124,48 @@ class bpgpb_Embed_Google_Photos {
         register_block_type(__DIR__ . '/build'); // Register Block
 
         wp_set_script_translations('bpgpb-google-photos-editor-script', 'embed-google-photos', plugin_dir_path(__FILE__) . 'languages'); // Translate
+    }
+
+    /**
+     * Template Library button in the editor toolbar (src/template-library).
+     * Loaded in the header: a footer script from this hook can miss the editor's print pass.
+     */
+    public function enqueueTemplateLibrary()
+    {
+        if (!current_user_can('edit_posts')) {
+            return;
+        }
+
+        $assetFile = plugin_dir_path(__FILE__) . 'build/template-library.asset.php';
+
+        if (!file_exists($assetFile)) {
+            return;
+        }
+
+        $asset = require $assetFile;
+
+        wp_enqueue_script(
+            'bpgpb-template-library',
+            plugin_dir_url(__FILE__) . 'build/template-library.js',
+            array_merge($asset['dependencies'], ['wp-util']),
+            $asset['version'],
+            false
+        );
+
+        wp_enqueue_style(
+            'bpgpb-template-library',
+            plugin_dir_url(__FILE__) . 'build/template-library.css',
+            [],
+            $asset['version']
+        );
+
+        wp_set_script_translations('bpgpb-template-library', 'embed-google-photos', plugin_dir_path(__FILE__) . 'languages');
+
+        wp_add_inline_script(
+            'bpgpb-template-library',
+            'const bpgpbTemplateNonce = "' . esc_js(wp_create_nonce('bpgpb_template')) . '";',
+            'before'
+        );
     }
 }
 bpgpb_Embed_Google_Photos::get_instance();
