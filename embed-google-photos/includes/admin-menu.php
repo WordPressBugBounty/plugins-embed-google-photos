@@ -78,8 +78,15 @@ if (!class_exists('bpgpb_Admin_Menu')) {
             printf(
                 '<div id="bpgpbDashboard" data-info="%s"></div>',
                 esc_attr(wp_json_encode([
-                    'version'  => BPGPB_PLUGIN_VERSION,
-                    'adminUrl' => admin_url(),
+                    'version'   => BPGPB_PLUGIN_VERSION,
+                    'adminUrl'  => admin_url(),
+                    'isPremium' => function_exists( 'bpgpb_fs' ) && bpgpb_fs()->can_use_premium_code(),
+                    'bfcm'      => [
+                        'show'       => class_exists( 'BPGPB_BFCM_Notice' ) ? BPGPB_BFCM_Notice::get_instance()->is_active() : false,
+                        'nonce'      => wp_create_nonce( 'bpgpb_bfcm_dismiss_nonce' ),
+                        'ajaxUrl'    => admin_url( 'admin-ajax.php' ),
+                        'pricingUrl' => 'https://bplugins.com/products/embed-google-photos/pricing/?utm_source=plugin_dashboard&utm_medium=bfcm_banner&utm_campaign=bfcm2026',
+                    ],
                 ]))
             );
         }

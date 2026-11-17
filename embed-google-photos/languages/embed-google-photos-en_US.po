@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gallery for Google Photos – share your albums right on your site 1.3.1\n"
+"Project-Id-Version: Gallery for Google Photos – share your albums right on your site 1.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/embed-google-photos\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-18T09:27:04+00:00\n"
+"POT-Creation-Date: 2026-11-17T03:37:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: embed-google-photos\n"
@@ -42,6 +42,10 @@ msgstr ""
 msgid "Docs"
 msgstr ""
 
+#: embed-google-photos.php:96
+msgid "Black Friday: Save 45%!"
+msgstr ""
+
 #: includes/admin-menu.php:68
 #: includes/admin-menu.php:70
 msgid "Help & Demos"
@@ -57,6 +61,34 @@ msgstr ""
 
 #: includes/album-link.php:210
 msgid "Could not open the album link."
+msgstr ""
+
+#: includes/BFCMNotice.php:271
+msgid "Gallery for Google Photos' Biggest Black Friday Sale is Live – Up to 45% OFF!"
+msgstr ""
+
+#: includes/BFCMNotice.php:274
+msgid "The biggest deal of the year just arrived early! This is your once-a-year opportunity to upgrade to Google Photos Gallery Pro at an exclusive price. Unlock unlimited shared albums, masonry & slider layouts, automated syncing, and everything you need to showcase your Google Photos galleries!"
+msgstr ""
+
+#: includes/BFCMNotice.php:277
+msgid "Unlimited Shared Albums"
+msgstr ""
+
+#: includes/BFCMNotice.php:278
+msgid "Masonry & Slider Layouts"
+msgstr ""
+
+#: includes/BFCMNotice.php:279
+msgid "Auto-Sync New Photos"
+msgstr ""
+
+#: includes/BFCMNotice.php:280
+msgid "Full Lightbox & Download"
+msgstr ""
+
+#: includes/BFCMNotice.php:287
+msgid "Unlock PRO Features →"
 msgstr ""
 
 #. translators: %s: plugin version

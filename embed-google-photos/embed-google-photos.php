@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Gallery for Google Photos – share your albums right on your site
  * Description: Embed stunning Google Photos galleries directly into your WordPress site with the Google Photos Block plugin.
- * Version: 1.3.1
+ * Version: 1.3.2
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * License: GPLv3 or later
@@ -86,6 +86,17 @@ class bpgpb_Embed_Google_Photos {
 
         array_unshift($links, $dashboard, $docs);
 
+        // Black Friday action link (active until December 5, 2026)
+        if ( time() <= 1796515199 && ( ! function_exists( 'bpgpb_fs' ) || ! bpgpb_fs()->can_use_premium_code() ) ) {
+            $bfcmUrl = 'https://bplugins.com/products/embed-google-photos/pricing/?utm_source=plugins_page&utm_medium=bfcm_action_link&utm_campaign=bfcm2026';
+            $links['bfcm'] = sprintf(
+                '<a href="%s" style="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+                esc_url( $bfcmUrl ),
+                'color:#d63638;font-weight:bold;',
+                __( 'Black Friday: Save 45%!', 'embed-google-photos' )
+            );
+        }
+
         return $links;
     }
 
@@ -100,7 +111,7 @@ class bpgpb_Embed_Google_Photos {
 
     public function constants_defined() {
         // Constant
-        define( 'BPGPB_PLUGIN_VERSION', '1.3.1' );
+        define( 'BPGPB_PLUGIN_VERSION', '1.3.2' );
         define('BPGPB_ASSETS_DIR', plugin_dir_url(__FILE__) . 'assets/');
         define('BPGPB_DIR_URL', plugin_dir_url(__FILE__));
         define('BPGPB_DIR_PATH', plugin_dir_path(__FILE__));
@@ -116,6 +127,7 @@ class bpgpb_Embed_Google_Photos {
         require_once plugin_dir_path(__FILE__) . 'includes/album-link.php';
         require_once plugin_dir_path(__FILE__) . 'includes/admin-menu.php';
         require_once plugin_dir_path(__FILE__) . 'includes/templates.php';
+        require_once plugin_dir_path(__FILE__) . 'includes/BFCMNotice.php';
     }
 
     public function onInit()

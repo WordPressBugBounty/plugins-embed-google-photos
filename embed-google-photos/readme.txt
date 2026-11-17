@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, photos, google photos, gallery, album
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -310,6 +310,10 @@ Please report security bugs found in the source code of the Gallery for Google P
 
 == Changelog ==
 
+= 1.3.2 - 17 November, 2026 =
+* New: Added Black Friday / Cyber Monday promotional banner and dashboard notifications.
+* Update: Added Black Friday special discount action link and UI enhancements.
+
 = 1.3.1 - 18 October, 2026 =
 * New: Gallery Templates – 30 ready-made gallery templates (13 Free, 17 Pro) in the editor toolbar. Pro templates are locked in the free version.
 * New: Add a shared Google Photos album to a gallery. Paste the album link and click Save & Sync — no Google Client ID or Client Secret needed.
@@ -385,6 +389,9 @@ Please report security bugs found in the source code of the Gallery for Google P
 
 
 == Upgrade Notice ==
+
+= 1.3.2 =
+Upgrade to 1.3.2 for Black Friday promotions and latest UI improvements.
 
 = 1.3.1 - 18 October, 2026 =
 * Add a shared Google Photos album without a Client ID or Client Secret, and keep its photos on Google to save server space.
